@@ -4,11 +4,16 @@ plugins {
     id 'java'
 }
 
-
 group = 'com.kikawet'
 version = '0.0.1-SNAPSHOT'
 description = 'reactive-media-server'
 sourceCompatibility = '17'
+
+configurations {
+  compileOnly {
+    extendsFrom annotationProcessor
+  }
+}
 
 repositories {
     mavenCentral()
@@ -20,6 +25,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation:2.7.1'
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive:2.7.1'
     runtimeOnly 'org.springframework.boot:spring-boot-devtools:2.7.1'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.1'
     testImplementation 'io.projectreactor:reactor-test:3.4.19'
 }
